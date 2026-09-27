@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Mobile First Sample</title>
+
+    <style>
+        /* Mobile First Approach */
+
+        /* Base styles (mobile: < 768px) */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #222;
+        }
+
+        .container {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            background-color: #2563eb;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        header p {
+            margin: 0;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: white;
+            background-color: #333;
+            padding: 12px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .nav a:hover {
+            background-color: #555;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        /* Breakpoint indicator */
+        .status {
+            margin-top: 30px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            background-color: #f87171;
+        }
+
+        .status::after {
+            content: "mobile: < 768px";
+        }
+
+
+        /* Tablet (768px – 1023px) */
+        @media (min-width: 768px) {
+
+            .container {
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            .nav {
+                flex-direction: row;
+            }
+
+            .nav a {
+                flex: 1;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .status {
+                background-color: #facc15;
+            }
+
+            .status::after {
+                content: "Tablet (768px – 1023px)";
+            }
+        }
+
+
+        /* Desktop (1024px – 1439px) */
+        @media (min-width: 1024px) {
+
+            .container {
+                padding: 40px;
+                font-size: 18px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .status {
+                background-color: #60a5fa;
+            }
+
+            .status::after {
+                content: "Desktop (1024px – 1439px)";
+            }
+        }
+
+
+        /* Large Desktop (1440px and above) */
+        @media (min-width: 1440px) {
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .status {
+                background-color: #4ade80;
+            }
+
+            .status::after {
+                content: "Large Desktop (1440px and above)";
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>Mobile-First Responsive Design</h1>
+            <p>Resize the browser to test the media queries</p>
+        </header>
+
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+
+
+        <!-- Main Content -->
+        <main>
+
+            <h2>Responsive Grid</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Card 1</h3>
+                    <p>This card changes its position depending on screen size.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Card 2</h3>
+                    <p>This card changes its position depending on screen size.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Card 3</h3>
+                    <p>This card changes its position depending on screen size.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Card 4</h3>
+                    <p>This card changes its position depending on screen size.</p>
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- Current Breakpoint -->
+        <div class="status"></div>
+
+    </div>
+
+</body>
+
+</html>

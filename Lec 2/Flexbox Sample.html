@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Sample</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .item {
+            flex: 1 1 200px;
+            /* grow, shrink, basis */
+            padding: 30px;
+            background: #3498db;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .item:nth-child(2) {
+            flex-grow: 2;
+            /* This item grows twice as much */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="container">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+                <div class="item">Item 4</div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
