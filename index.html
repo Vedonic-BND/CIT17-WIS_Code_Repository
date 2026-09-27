@@ -3,13 +3,110 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta name="theme-color" content="#060a0e">
-    <meta name="description"
-        content="CC17 – Web Information System | Lecture Materials, Interactive Code Samples, and Exercises by Instructor Venn.">
-    <title>CC17 – Web Information System | Code Repository</title>
+    <meta name="color-scheme" content="dark">
 
-    <!-- Google Fonts Matching Consultation Design -->
+    <!-- Mobile App / PWA Capabilities -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CIT17 WIS">
+    <meta name="application-name" content="CIT17 WIS">
+    <link rel="manifest" href="assets/manifest.json">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>CIT17 — Web Information Systems | Course Portal, Syllabus & Code Repository</title>
+    <meta name="title" content="CIT17 — Web Information Systems | Course Portal, Syllabus & Code Repository">
+    <meta name="description"
+        content="Official Course Portal & Interactive Code Explorer for CIT17 (Web Information Systems) at the University of the Cordilleras. Access complete syllabus, units (Lec 1–6), live front-end & back-end prototypes, and GitHub code by Instructor Venn Edward Nicolas.">
+    <meta name="keywords"
+        content="CIT17, Web Information Systems, Web Development, HTML5, CSS3, Flexbox, Grid, PHP, MySQL, Web Architecture, Web Security, UC CITCS, Venn Edward Nicolas, University of the Cordilleras, Baguio City">
+    <meta name="author" content="Venn Edward D. Nicolas">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://vedonic-bnd.github.io/CC17-WIS_Code_Repository/">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vedonic-bnd.github.io/CC17-WIS_Code_Repository/">
+    <meta property="og:site_name" content="CIT17: Web Information Systems">
+    <meta property="og:title" content="CIT17 — Web Information Systems | Course Portal & Code Explorer">
+    <meta property="og:description"
+        content="Interactive syllabus, learning units, live web demos, and curated code repository for CITCS students at University of the Cordilleras.">
+    <meta property="og:image" content="assets/cit17-banner.jpg">
+    <meta property="og:image:alt" content="CIT17 Web Information Systems Course Banner">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vedonic-bnd.github.io/CC17-WIS_Code_Repository/">
+    <meta name="twitter:title" content="CIT17 — Web Information Systems | Course Portal & Code Explorer">
+    <meta name="twitter:description"
+        content="Interactive syllabus, learning units, live web demos, and curated code repository for CITCS students at University of the Cordilleras.">
+    <meta name="twitter:image" content="assets/cit17-banner.jpg">
+    <meta name="twitter:creator" content="@vedonic">
+
+    <!-- Schema.org JSON-LD Structured Data for Course & Instructor -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Course",
+          "@id": "https://vedonic-bnd.github.io/CC17-WIS_Code_Repository/#course",
+          "name": "CIT17 – Web Information Systems",
+          "courseCode": "CIT17",
+          "description": "Comprehensive course covering web architecture, advanced front-end development, server-side back-end processing with PHP & MySQL, web security, and deployment.",
+          "educationalCredentialAwarded": "3 Academic Units",
+          "provider": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of the Cordilleras",
+            "url": "https://www.uc-bcf.edu.ph",
+            "department": {
+              "@type": "Organization",
+              "name": "College of Information Technology and Computer Science (CITCS)"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Baguio City",
+              "addressRegion": "Benguet",
+              "addressCountry": "PH"
+            }
+          },
+          "instructor": {
+            "@type": "Person",
+            "name": "Venn Edward D. Nicolas",
+            "jobTitle": "Instructor, Full-Stack Developer & Mentor",
+            "email": "mailto:vdnicolas@uc-bcf.edu.ph",
+            "url": "https://www.vedonic.space",
+            "sameAs": [
+              "https://github.com/vedonic-bnd",
+              "https://www.linkedin.com/in/vedonic/",
+              "https://www.vedonic.space"
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://vedonic-bnd.github.io/CC17-WIS_Code_Repository/#website",
+          "url": "https://vedonic-bnd.github.io/CC17-WIS_Code_Repository/",
+          "name": "CIT17 Course Portal",
+          "description": "Official Web Information Systems code repository and syllabus portal.",
+          "author": {
+            "@type": "Person",
+            "name": "Venn Edward D. Nicolas"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts: DM Serif Display, Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -18,28 +115,36 @@
 
     <style>
         :root {
-            /* Consultation Color Palette */
-            --color-stormy-teal: #006466;
-            --color-dark-teal-1: #065a60;
-            --color-dark-teal-2: #0b525b;
-            --color-dark-teal-3: #144552;
-            --color-charcoal-blue: #1b3a4b;
-            --color-deep-space-blue: #212f45;
-            --color-space-indigo: #272640;
-            --color-midnight-violet-1: #312244;
-            --color-midnight-violet-2: #3e1f47;
-            --color-deep-purple: #4d194d;
-            --color-mint-accent: #52b788;
+            /* Palette Tokens from vedonic.space */
+            --white-100: #ffffff;
+            --white-200: rgba(255, 255, 255, 0.70);
+            --white-300: rgba(255, 255, 255, 0.08);
+            --white-400: rgba(255, 255, 255, 0.03);
 
-            /* Surface & Text Tokens */
-            --bg-base: #060a0e;
-            --card-bg: rgba(9, 18, 24, 0.6);
-            --card-hover-bg: rgba(9, 18, 24, 0.85);
+            --black-300: #060a0e;
+            --black-400: rgb(6, 10, 14);
+            --black-500: #0a1218;
+            --black-600: #091218;
+            --black-700: #07131b;
+            --black-800: #09151e;
+            --black-900: #0c171f;
+
+            --teal-100: #006466;
+            --teal-200: #065a60;
+            --teal-300: #0b525b;
+            --teal-400: #144552;
+            --teal-glow: rgba(0, 100, 102, 0.25);
+
+            --accent-green: #52b788;
+            --accent-green-soft: #566062;
+            --accent-cyan: #38bdf8;
+            --silver: #94a3b8;
+            --silver-muted: rgba(255, 255, 255, 0.35);
+
+            --card-bg: rgba(9, 18, 24, 0.65);
+            --card-hover-bg: rgba(9, 18, 24, 0.90);
             --border-subtle: rgba(255, 255, 255, 0.07);
-            --border-hover: rgba(255, 255, 255, 0.22);
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.65);
-            --text-muted: rgba(255, 255, 255, 0.38);
+            --border-hover: rgba(255, 255, 255, 0.20);
 
             --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
@@ -54,28 +159,31 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
             margin: 0;
             min-height: 100vh;
-            background-color: var(--bg-base);
+            background-color: var(--black-300);
             background-image:
-                radial-gradient(ellipse 70% 40% at 50% -10%, rgba(0, 100, 102, 0.16), transparent),
-                radial-gradient(ellipse 60% 40% at 90% 40%, rgba(39, 38, 64, 0.15), transparent),
-                radial-gradient(ellipse 70% 50% at 10% 80%, rgba(49, 34, 68, 0.12), transparent);
-            color: var(--text-primary);
+                radial-gradient(ellipse 75% 45% at 50% -10%, rgba(0, 100, 102, 0.16), transparent),
+                radial-gradient(ellipse 65% 40% at 90% 40%, rgba(39, 38, 64, 0.14), transparent),
+                radial-gradient(ellipse 75% 50% at 10% 80%, rgba(49, 34, 68, 0.12), transparent);
+            color: var(--white-100);
             font-family: var(--font-sans);
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
-            padding: 2.5rem 1.5rem 4rem;
+            padding: max(2rem, env(safe-area-inset-top, 2rem)) max(1.5rem, env(safe-area-inset-right, 1.5rem)) calc(5.5rem + env(safe-area-inset-bottom, 0px)) max(1.5rem, env(safe-area-inset-left, 1.5rem));
             position: relative;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         ::selection {
-            background: rgba(0, 100, 102, 0.45);
-            color: #ffffff;
+            background: var(--teal-glow);
+            color: var(--white-100);
         }
 
         /* Reading Progress Bar */
@@ -86,7 +194,7 @@
             height: 2px;
             width: 0%;
             z-index: 99998;
-            background: linear-gradient(90deg, #006466, #52b788, #006466);
+            background: linear-gradient(90deg, var(--teal-100), var(--accent-green), var(--teal-100));
             background-size: 200% auto;
             animation: progress-shimmer 2s linear infinite;
             transition: width 0.1s linear;
@@ -106,10 +214,10 @@
             top: 0;
             left: 0;
             z-index: 9999;
-            width: 360px;
-            height: 360px;
+            width: 380px;
+            height: 380px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 100, 102, 0.12) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 100, 102, 0.11) 0%, transparent 70%);
             transform: translate(-50%, -50%);
             transition: opacity 0.3s ease;
             will-change: transform;
@@ -120,18 +228,18 @@
             width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #060a0e;
+            background: var(--black-300);
         }
         ::-webkit-scrollbar-thumb {
-            background: #144552;
+            background: var(--teal-400);
             border-radius: 999px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #006466;
+            background: var(--teal-100);
         }
 
         .container {
-            max-width: 1040px;
+            max-width: 1080px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -143,24 +251,95 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1rem;
-            padding-bottom: 2rem;
-            margin-bottom: 2rem;
+            gap: 1.25rem;
+            padding-bottom: 1.75rem;
+            margin-bottom: 2.25rem;
             border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Brand Logo Badge */
+        .brand-logo-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(9, 21, 30, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-logo-badge:hover {
+            transform: scale(1.06);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(12, 28, 40, 0.95);
+        }
+
+        .brand-logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .brand-info-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .brand-title-line {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--white-100);
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .brand-title-line .brand-sub {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--accent-green);
+            background: rgba(0, 100, 102, 0.2);
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 100, 102, 0.35);
+        }
+
+        .brand-dept-line {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--silver-muted);
+            letter-spacing: 0.02em;
         }
 
         .brand-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.35rem 0.85rem;
+            gap: 0.55rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 999px;
             background: rgba(0, 100, 102, 0.12);
-            border: 1px solid rgba(0, 100, 102, 0.3);
+            border: 1px solid rgba(0, 100, 102, 0.32);
             font-family: var(--font-mono);
             font-size: 0.72rem;
             letter-spacing: 0.08em;
-            color: var(--color-mint-accent);
+            color: var(--accent-green);
             text-transform: uppercase;
         }
 
@@ -168,8 +347,8 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: var(--color-mint-accent);
-            box-shadow: 0 0 8px var(--color-mint-accent);
+            background: var(--accent-green);
+            box-shadow: 0 0 8px var(--accent-green);
             animation: pulse-dot 2s infinite ease-in-out;
         }
 
@@ -178,27 +357,23 @@
             50% { transform: scale(1.3); opacity: 0.6; }
         }
 
-        .top-meta {
+        .top-nav-links {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.25rem;
             font-family: var(--font-mono);
             font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
+            color: var(--silver-muted);
         }
 
-        .repo-link {
-            color: var(--text-secondary);
+        .top-nav-links a {
+            color: var(--white-200);
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
             transition: color 0.2s ease;
         }
 
-        .repo-link:hover {
-            color: #ffffff;
+        .top-nav-links a:hover {
+            color: var(--white-100);
         }
 
         /* Header / Hero Section */
@@ -209,10 +384,10 @@
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            padding: 3rem 2.5rem;
+            padding: 3.5rem 2.75rem;
             margin-bottom: 2.5rem;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
         }
 
         header.hero-header::before {
@@ -231,7 +406,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.22em;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.38);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -243,62 +418,71 @@
             flex: 1;
             max-width: 60px;
             height: 1px;
-            background: rgba(255, 255, 255, 0.15);
+            background: var(--border-subtle);
         }
 
         header h1 {
             font-family: var(--font-serif);
-            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-size: clamp(2.3rem, 5.5vw, 3.6rem);
             font-weight: 400;
             line-height: 1.15;
             letter-spacing: -0.015em;
-            color: var(--text-primary);
+            color: var(--white-100);
             margin-bottom: 1.25rem;
         }
 
         header h1 span {
-            color: var(--color-mint-accent);
+            color: var(--accent-green);
             font-style: italic;
         }
 
         header p.hero-subtitle {
             font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            max-width: 720px;
+            line-height: 1.75;
+            color: var(--white-200);
+            max-width: 780px;
             font-weight: 300;
         }
 
-        /* Hero Pill Badges */
-        .hero-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-top: 1.8rem;
+        /* Quick Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.85rem;
+            margin-top: 2.25rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.85rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .info-pill-item {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 0.9rem 1.1rem;
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .info-pill-item:hover {
+            border-color: rgba(0, 100, 102, 0.45);
+            background: rgba(0, 100, 102, 0.08);
+        }
+
+        .info-pill-label {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.75);
-            letter-spacing: 0.03em;
-            transition: all 0.25s ease;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--silver-muted);
+            margin-bottom: 0.35rem;
         }
 
-        .hero-pill:hover {
-            border-color: rgba(0, 100, 102, 0.5);
-            background: rgba(0, 100, 102, 0.15);
-            color: #ffffff;
+        .info-pill-value {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--white-100);
         }
 
-        /* Section Container */
+        /* Section Cards */
         .section-card {
             position: relative;
             border-radius: 24px;
@@ -306,17 +490,17 @@
             background: var(--card-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 2.25rem;
-            margin-bottom: 2rem;
+            padding: 2.75rem;
+            margin-bottom: 2.25rem;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
         }
 
         .section-number {
             position: absolute;
-            top: 1.75rem;
-            right: 2rem;
+            top: 2.25rem;
+            right: 2.5rem;
             font-family: var(--font-mono);
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             color: rgba(255, 255, 255, 0.12);
             letter-spacing: 0.15em;
             user-select: none;
@@ -324,9 +508,9 @@
 
         .section-card h2 {
             font-family: var(--font-serif);
-            font-size: 1.75rem;
+            font-size: 1.85rem;
             font-weight: 400;
-            color: var(--text-primary);
+            color: var(--white-100);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -334,31 +518,154 @@
         }
 
         .section-lead {
-            font-size: 0.96rem;
-            line-height: 1.75;
-            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: var(--white-200);
             font-weight: 300;
         }
 
-        .section-lead strong {
-            color: var(--text-primary);
+        /* Period (Midterms / Finals) Badge Headers */
+        .period-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 2.25rem 0 1.25rem;
+        }
+
+        .period-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
             font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
         }
 
-        .overview-callout {
-            margin-top: 1.25rem;
-            padding: 1.25rem 1.5rem;
-            border-radius: 14px;
-            border-left: 3px solid var(--color-stormy-teal);
-            background: rgba(0, 100, 102, 0.08);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
+        .period-badge.midterms {
+            background: rgba(0, 100, 102, 0.20);
+            border: 1px solid rgba(82, 183, 136, 0.35);
+            color: var(--accent-green);
         }
 
-        /* Dynamic Folder Pills Navigation */
+        .period-badge.finals {
+            background: rgba(11, 82, 91, 0.25);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: var(--accent-cyan);
+        }
+
+        .period-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border-subtle);
+        }
+
+        /* Units Grid */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .unit-card {
+            background: rgba(6, 10, 14, 0.55);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 1.65rem;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .unit-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(0, 100, 102, 0.08) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .unit-card:hover {
+            border-color: var(--border-hover);
+            background: var(--card-hover-bg);
+            transform: translateY(-2px);
+        }
+
+        .unit-card:hover::before {
+            opacity: 1;
+        }
+
+        .unit-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.85rem;
+        }
+
+        .unit-number-pill {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--silver-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .unit-topic-count {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--accent-green);
+            background: rgba(0, 100, 102, 0.15);
+            padding: 0.18rem 0.55rem;
+            border-radius: 999px;
+        }
+
+        .unit-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.28rem;
+            font-weight: 400;
+            color: var(--white-100);
+            line-height: 1.35;
+            margin-bottom: 1.15rem;
+        }
+
+        .topic-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .topic-item {
+            font-size: 0.84rem;
+            color: var(--white-200);
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            transition: color 0.2s ease;
+        }
+
+        .unit-card:hover .topic-item {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .topic-bullet {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-green);
+            opacity: 0.75;
+            padding-top: 0.12rem;
+        }
+
+        /* Dynamic Unit Tabs (Lec 1 - Lec 6) */
         .folder-tabs-wrapper {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.6rem;
         }
 
         .folder-tabs-label {
@@ -366,14 +673,14 @@
             font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 0.18em;
-            color: var(--text-muted);
+            color: var(--silver-muted);
             margin-bottom: 0.75rem;
         }
 
         .folder-tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.55rem;
         }
 
         .folder-tab {
@@ -381,10 +688,10 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-subtle);
             border-radius: 999px;
-            padding: 0.4rem 0.9rem;
+            padding: 0.45rem 0.95rem;
             font-family: var(--font-mono);
             font-size: 0.75rem;
-            color: var(--text-secondary);
+            color: var(--white-200);
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
@@ -393,29 +700,29 @@
         }
 
         .folder-tab:hover {
-            border-color: rgba(0, 100, 102, 0.5);
+            border-color: rgba(0, 100, 102, 0.45);
             background: rgba(0, 100, 102, 0.12);
-            color: #ffffff;
+            color: var(--white-100);
         }
 
         .folder-tab.active {
             background: rgba(0, 100, 102, 0.25);
-            border-color: var(--color-mint-accent);
-            color: #ffffff;
-            box-shadow: 0 0 12px rgba(82, 183, 136, 0.2);
+            border-color: var(--accent-green);
+            color: var(--white-100);
+            box-shadow: 0 0 14px rgba(82, 183, 136, 0.18);
         }
 
         .folder-tab .tab-count {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             padding: 0.1rem 0.4rem;
             border-radius: 999px;
             font-size: 0.68rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.65);
         }
 
         .folder-tab.active .tab-count {
             background: rgba(82, 183, 136, 0.25);
-            color: var(--color-mint-accent);
+            color: var(--accent-green);
         }
 
         /* Search & Filter Bar */
@@ -427,25 +734,25 @@
             gap: 1rem;
             margin-bottom: 1.75rem;
             padding-bottom: 1.25rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .search-wrapper {
             position: relative;
             flex: 1;
             min-width: 240px;
-            max-width: 400px;
+            max-width: 420px;
         }
 
         .search-input {
             width: 100%;
-            background: rgba(6, 10, 14, 0.7);
+            background: rgba(6, 10, 14, 0.75);
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding: 0.65rem 1rem 0.65rem 2.4rem;
             font-family: var(--font-mono);
             font-size: 0.82rem;
-            color: #ffffff;
+            color: var(--white-100);
             outline: none;
             transition: all 0.25s ease;
         }
@@ -453,11 +760,11 @@
         .search-input:focus {
             border-color: rgba(0, 100, 102, 0.8);
             box-shadow: 0 0 0 3px rgba(0, 100, 102, 0.2);
-            background: rgba(6, 10, 14, 0.95);
+            background: var(--black-400);
         }
 
         .search-input::placeholder {
-            color: var(--text-muted);
+            color: var(--silver-muted);
         }
 
         .search-icon {
@@ -466,14 +773,14 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--silver-muted);
             pointer-events: none;
         }
 
         .file-counter {
             font-family: var(--font-mono);
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: var(--silver-muted);
             letter-spacing: 0.05em;
         }
 
@@ -484,17 +791,16 @@
             gap: 1.25rem;
         }
 
-        /* Consultation-Style Card */
         .file-item {
             position: relative;
             border-radius: 20px;
             border: 1px solid var(--border-subtle);
-            background: rgba(9, 18, 24, 0.5);
-            padding: 1.5rem;
+            background: rgba(9, 18, 24, 0.55);
+            padding: 1.6rem;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-            color: var(--text-primary);
+            color: var(--white-100);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -520,14 +826,14 @@
             border-color: var(--border-hover);
             background: var(--card-hover-bg);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 100, 102, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 100, 102, 0.16);
         }
 
         .card-header-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 0.85rem;
+            margin-bottom: 0.9rem;
         }
 
         .card-folder-badge {
@@ -536,10 +842,10 @@
             gap: 0.3rem;
             font-family: var(--font-mono);
             font-size: 0.68rem;
-            color: var(--color-mint-accent);
+            color: var(--accent-green);
             background: rgba(0, 100, 102, 0.15);
             border: 1px solid rgba(0, 100, 102, 0.3);
-            padding: 0.2rem 0.55rem;
+            padding: 0.22rem 0.55rem;
             border-radius: 6px;
             letter-spacing: 0.04em;
         }
@@ -547,9 +853,9 @@
         .card-ext-badge {
             font-family: var(--font-mono);
             font-size: 0.68rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--white-200);
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-subtle);
             padding: 0.2rem 0.5rem;
             border-radius: 6px;
             text-transform: uppercase;
@@ -559,7 +865,7 @@
             font-family: var(--font-serif);
             font-size: 1.25rem;
             font-weight: 400;
-            color: var(--text-primary);
+            color: var(--white-100);
             line-height: 1.35;
             margin-bottom: 0.4rem;
         }
@@ -567,18 +873,18 @@
         .file-item p.file-filename {
             font-family: var(--font-mono);
             font-size: 0.78rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.2rem;
+            color: var(--white-200);
+            margin-bottom: 1.25rem;
             word-break: break-all;
         }
 
-        /* Dual Action Buttons on Card */
+        /* Dual Action Buttons */
         .card-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.6rem;
             padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--border-subtle);
             position: relative;
             z-index: 2;
         }
@@ -599,15 +905,15 @@
         }
 
         .btn-preview {
-            background: rgba(0, 100, 102, 0.3);
-            border: 1px solid rgba(0, 100, 102, 0.5);
-            color: #ffffff;
+            background: rgba(0, 100, 102, 0.30);
+            border: 1px solid rgba(0, 100, 102, 0.55);
+            color: var(--white-100);
         }
 
         .btn-preview:hover {
-            background: #006466;
-            border-color: var(--color-mint-accent);
-            color: #ffffff;
+            background: var(--teal-100);
+            border-color: var(--accent-green);
+            color: var(--white-100);
             box-shadow: 0 0 12px rgba(82, 183, 136, 0.3);
             transform: translateY(-1px);
         }
@@ -615,21 +921,21 @@
         .btn-source {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.75);
+            color: var(--white-200);
         }
 
         .btn-source:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.25);
-            color: #ffffff;
+            color: var(--white-100);
             transform: translateY(-1px);
         }
 
         /* Loading & Empty States */
         .loading {
             text-align: center;
-            padding: 3rem 1.5rem;
-            color: var(--text-secondary);
+            padding: 3.5rem 1.5rem;
+            color: var(--white-200);
             grid-column: 1 / -1;
             display: flex;
             flex-direction: column;
@@ -655,7 +961,7 @@
             position: absolute;
             inset: 25%;
             border-radius: 50%;
-            background: var(--color-stormy-teal);
+            background: var(--teal-100);
         }
 
         @keyframes ping {
@@ -669,15 +975,15 @@
             font-family: var(--font-mono);
             font-size: 0.82rem;
             letter-spacing: 0.05em;
-            color: var(--text-secondary);
+            color: var(--white-200);
         }
 
         /* Refresh Button */
         .refresh-btn {
             background: none;
             border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            padding: 0.3rem 0.7rem;
+            color: var(--white-200);
+            padding: 0.3rem 0.75rem;
             border-radius: 8px;
             font-family: var(--font-mono);
             font-size: 0.7rem;
@@ -690,54 +996,332 @@
 
         .refresh-btn:hover {
             background: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
+            color: var(--white-100);
             border-color: var(--border-hover);
         }
 
-        /* Footer */
-        footer.page-footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-subtle);
-            color: var(--text-muted);
-            font-size: 0.82rem;
-            line-height: 1.8;
-            font-family: var(--font-sans);
+        /* =============================================
+           FOOTER (Consultation & vedonic.space styling)
+        ============================================= */
+        footer.site-footer {
+            position: relative;
+            margin-top: 6.5rem;
+            padding-top: 3rem;
+            padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: transparent;
         }
 
-        footer.page-footer strong {
-            color: rgba(255, 255, 255, 0.7);
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.25rem;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: space-between;
+        }
+
+        @media (min-width: 640px) {
+            .footer-top {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .footer-logo-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(9, 21, 30, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .footer-logo-badge:hover,
+        .footer-logo-badge:active {
+            transform: scale(1.06);
+            border-color: rgba(255, 255, 255, 0.35);
+            background: rgba(12, 28, 40, 0.95);
+        }
+
+        .footer-logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-role {
+            font-size: 0.92rem;
             font-weight: 500;
+            color: var(--white-100);
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
         }
 
-        footer .footer-mono {
+        .footer-role-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--teal-100);
+            box-shadow: 0 0 8px rgba(0, 100, 102, 0.9);
+        }
+
+        .footer-institution {
             font-family: var(--font-mono);
-            font-size: 0.72rem;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.65);
+            margin-top: 0.25rem;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-sep {
+            margin: 0 0.45rem;
             color: rgba(255, 255, 255, 0.3);
-            margin-top: 0.4rem;
-            letter-spacing: 0.04em;
+        }
+
+        .footer-social-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.9rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-link-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.75);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            cursor: pointer;
+            padding: 0.35rem 0.65rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            min-height: 38px;
+        }
+
+        .footer-link-btn:hover,
+        .footer-link-btn:active {
+            color: var(--white-100);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .footer-social-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            padding: 0.35rem 0.65rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            min-height: 38px;
+        }
+
+        .footer-social-links a:hover,
+        .footer-social-links a:active {
+            color: var(--white-100);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .footer-dot {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            padding-top: 2rem;
+            padding-bottom: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        @media (min-width: 640px) {
+            .footer-bottom {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.8rem;
+            letter-spacing: 0.01em;
+            max-width: 640px;
+        }
+
+        .footer-consultation-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 500;
+            font-size: 0.8rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            background: rgba(82, 183, 136, 0.1);
+            border: 1px solid rgba(82, 183, 136, 0.25);
+            align-self: flex-start;
+            min-height: 38px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-consultation-link {
+                align-self: center;
+            }
+        }
+
+        .footer-consultation-link:hover,
+        .footer-consultation-link:active {
+            color: var(--white-100);
+            background: rgba(82, 183, 136, 0.2);
+            border-color: var(--accent-green);
+            transform: translateX(3px);
+        }
+
+        /* Interactive Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+            right: max(24px, env(safe-area-inset-right, 0px));
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(9, 18, 24, 0.94);
+            border: 1px solid rgba(82, 183, 136, 0.4);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 16px rgba(82, 183, 136, 0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 0.75rem 1.15rem;
+            border-radius: 12px;
+            color: var(--white-100);
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px) scale(0.96);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .toast-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(82, 183, 136, 0.2);
+            color: var(--accent-green);
+            font-size: 0.72rem;
+            font-weight: 700;
         }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             body {
-                padding: 1.5rem 1rem 3rem;
+                padding: max(1.25rem, env(safe-area-inset-top, 1.25rem)) max(1rem, env(safe-area-inset-right, 1rem)) calc(6rem + env(safe-area-inset-bottom, 0px)) max(1rem, env(safe-area-inset-left, 1rem));
             }
 
             header.hero-header {
-                padding: 2rem 1.5rem;
+                padding: 2rem 1.25rem;
+                border-radius: 18px;
             }
 
             .section-card {
-                padding: 1.5rem;
+                padding: 1.75rem 1.25rem;
+                border-radius: 18px;
             }
 
             .file-grid {
                 grid-template-columns: 1fr;
             }
 
+            .units-grid {
+                grid-template-columns: 1fr;
+            }
+
             .section-number {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .top-nav-links {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .toast-notification {
+                left: 1rem;
+                right: 1rem;
+                bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+                justify-content: center;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .file-item:active,
+            .unit-card:active,
+            .btn-action:active,
+            .folder-tab:active,
+            .brand-logo-badge:active {
+                transform: scale(0.98);
+            }
+            .cursor-glow {
                 display: none;
             }
         }
@@ -751,18 +1335,38 @@
     <!-- Ambient Cursor Spotlight -->
     <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
+    <!-- Copy Email Toast Feedback -->
+    <div id="toastNotification" class="toast-notification" role="status" aria-live="polite">
+        <div class="toast-icon">✓</div>
+        <div id="toastMessage">Copied to clipboard!</div>
+    </div>
+
     <div class="container">
         <!-- Top Navigation / Brand Status -->
         <div class="top-bar">
-            <div class="brand-badge">
-                <span class="dot"></span>
-                <span>CITCS • 1st Tri 2026-2027</span>
+            <div class="top-bar-left">
+                <!-- Instructor / Course Logo -->
+                <a href="#" class="brand-logo-badge" aria-label="CIT17 Portal Home">
+                    <img src="assets/logomain.png" alt="Instructor Venn Logo" width="44" height="44">
+                </a>
+                <div class="brand-info-text">
+                    <div class="brand-title-line">
+                        <span>CIT17</span>
+                        <span class="brand-sub">WIS</span>
+                    </div>
+                    <div class="brand-dept-line">CITCS • 3rd Year, 1st Term</div>
+                </div>
             </div>
-            <div class="top-meta">
-                <span>COURSE: CIT17 / CC17</span>
+
+            <div class="top-nav-links">
+                <a href="#overview">Overview</a>
                 <span>&bull;</span>
-                <a class="repo-link" href="https://github.com/Vedonic-BND/CC17-WIS_Code_Repository" target="_blank" rel="noopener noreferrer">
-                    <span>GitHub Repo</span> &nearr;
+                <a href="#curriculum">Syllabus</a>
+                <span>&bull;</span>
+                <a href="#repository">Code Explorer</a>
+                <span>&bull;</span>
+                <a href="https://github.com/Vedonic-BND/CC17-WIS_Code_Repository" target="_blank" rel="noopener noreferrer">
+                    GitHub &nearr;
                 </a>
             </div>
         </div>
@@ -770,45 +1374,280 @@
         <!-- Hero Header -->
         <header class="hero-header">
             <div class="eyebrow">
-                <span>01 // Dynamic Repository Explorer</span>
+                <span>01 // Course Portal & Repository</span>
             </div>
-            <h1>CC17 — Web <span>Information Systems</span></h1>
+            <h1>CIT17 — Web <span>Information Systems</span></h1>
             <p class="hero-subtitle">
-                Live interactive code repository for lectures, templates, HTML5/CSS3 prototypes, responsive design, and front-end architectures.
+                Official syllabus, learning units, interactive lecture materials, live prototypes, and front-end/back-end code samples for the CITCS program at the University of the Cordilleras.
             </p>
 
-            <div class="hero-pills">
-                <span class="hero-pill">⚡ Auto-Synced with GitHub</span>
-                <span class="hero-pill">💻 Modern Web Tech</span>
-                <span class="hero-pill">📐 Flexbox & CSS Grid</span>
-                <span class="hero-pill">📱 Mobile-First</span>
+            <!-- Quick Course Information Pills -->
+            <div class="info-grid">
+                <div class="info-pill-item">
+                    <div class="info-pill-label">Course Code</div>
+                    <div class="info-pill-value">CIT17</div>
+                </div>
+                <div class="info-pill-item">
+                    <div class="info-pill-label">Classification</div>
+                    <div class="info-pill-value">Professional Elective</div>
+                </div>
+                <div class="info-pill-item">
+                    <div class="info-pill-label">Units & Level</div>
+                    <div class="info-pill-value">3 Units (3rd Year)</div>
+                </div>
+                <div class="info-pill-item">
+                    <div class="info-pill-label">Prerequisite</div>
+                    <div class="info-pill-value">CIT14 (Web Tech)</div>
+                </div>
             </div>
         </header>
 
         <!-- Course Overview Section -->
-        <section class="section-card">
-            <span class="section-number">01 / 02</span>
-            <div class="eyebrow">About Course</div>
-            <h2>Course Overview</h2>
+        <section id="overview" class="section-card">
+            <span class="section-number">01 / 03</span>
+            <div class="eyebrow">Course Description</div>
+            <h2>About the Course</h2>
             <p class="section-lead">
-                This repository provides lecture materials, code demonstrations, and hands-on exercises for the <strong>Web Information Systems</strong> course at the <strong>College of Information Technology and Computer Science</strong>.
+                This course introduces the fundamental concepts and technologies involved in the development and management of <strong>Web Information Systems</strong>. Students will explore the architecture, design, implementation, and evaluation of web-based systems, with a focus on practical applications and current industry practices.
             </p>
-            <div class="overview-callout">
-                All folders and sample files pushed to the repository are automatically discovered in real-time.
+        </section>
+
+        <!-- Syllabus & Curriculum Section -->
+        <section id="curriculum" class="section-card">
+            <span class="section-number">02 / 03</span>
+            <div class="eyebrow">Curriculum Roadmap</div>
+            <h2>Course Units & Topics</h2>
+
+            <!-- MIDTERMS -->
+            <div class="period-header">
+                <span class="period-badge midterms">Midterm Units</span>
+                <div class="period-line"></div>
+            </div>
+
+            <div class="units-grid">
+                <!-- Unit 1 -->
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-header-top">
+                            <span class="unit-number-pill">Unit 01</span>
+                            <span class="unit-topic-count">5 Topics</span>
+                        </div>
+                        <h3>Web Architecture and Protocols</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item">
+                                <span class="topic-bullet">01</span>
+                                <span>Introduction to Web Information Systems (WIS)</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">02</span>
+                                <span>Web Protocols (HTTP/HTTPS, TCP/IP, DNS)</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">03</span>
+                                <span>Web Servers, Hosting, and Domain Management</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">04</span>
+                                <span>Introduction to Server-Side Processing</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">05</span>
+                                <span>Database Fundamentals</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Unit 2 -->
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-header-top">
+                            <span class="unit-number-pill">Unit 02</span>
+                            <span class="unit-topic-count">5 Topics</span>
+                        </div>
+                        <h3>Front-End Development</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item">
+                                <span class="topic-bullet">01</span>
+                                <span>Advanced HTML5 and Semantic Web</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">02</span>
+                                <span>Modern CSS (Flexbox, Grid, Responsive Design, Frameworks)</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">03</span>
+                                <span>JavaScript Fundamentals (ES6+) & DOM Manipulation</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">04</span>
+                                <span>Form Handling, Validation, and Events</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">05</span>
+                                <span>AJAX and Fetch API</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Unit 3 -->
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-header-top">
+                            <span class="unit-number-pill">Unit 03</span>
+                            <span class="unit-topic-count">5 Topics</span>
+                        </div>
+                        <h3>Back-End Development with PHP & MySQL</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item">
+                                <span class="topic-bullet">01</span>
+                                <span>PHP Syntax, Control Structures, and Functions</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">02</span>
+                                <span>Working with Forms (GET, POST, Sessions, File Uploads)</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">03</span>
+                                <span>MySQL Database Connection and CRUD Operations</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">04</span>
+                                <span>User Authentication Basics</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">05</span>
+                                <span>Error Handling and Debugging</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FINALS -->
+            <div class="period-header" style="margin-top: 2.75rem;">
+                <span class="period-badge finals">Final Units</span>
+                <div class="period-line"></div>
+            </div>
+
+            <div class="units-grid">
+                <!-- Unit 4 -->
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-header-top">
+                            <span class="unit-number-pill">Unit 04</span>
+                            <span class="unit-topic-count">6 Topics</span>
+                        </div>
+                        <h3>Web Security & Performance Optimization</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item">
+                                <span class="topic-bullet">01</span>
+                                <span>Common Web Vulnerabilities (OWASP Top 10 Overview)</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">02</span>
+                                <span>Input Validation, Sanitization & SQLi Prevention</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">03</span>
+                                <span>Cross-Site Scripting (XSS) & Session Security</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">04</span>
+                                <span>HTTPS, SSL/TLS, and Security Headers</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">05</span>
+                                <span>Web Performance Fundamentals & Caching Strategies</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">06</span>
+                                <span>Database Query and Asset Optimization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Unit 5 -->
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-header-top">
+                            <span class="unit-number-pill">Unit 05</span>
+                            <span class="unit-topic-count">6 Topics</span>
+                        </div>
+                        <h3>Testing, Deployment & Version Control</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item">
+                                <span class="topic-bullet">01</span>
+                                <span>Testing and Debugging Tools</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">02</span>
+                                <span>Minification, Bundling, and CDN</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">03</span>
+                                <span>Git and GitHub Fundamentals</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">04</span>
+                                <span>Version Control Workflows</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">05</span>
+                                <span>Web Hosting Platforms and Deployment Methods</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">06</span>
+                                <span>Environment Configuration, DNS Setup & Monitoring</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Unit 6 -->
+                <div class="unit-card">
+                    <div>
+                        <div class="unit-header-top">
+                            <span class="unit-number-pill">Unit 06</span>
+                            <span class="unit-topic-count">4 Topics</span>
+                        </div>
+                        <h3>Professional Development & Industry Practices</h3>
+                        <ul class="topic-list">
+                            <li class="topic-item">
+                                <span class="topic-bullet">01</span>
+                                <span>Web Development Best Practices & Coding Standards</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">02</span>
+                                <span>Documentation and Portfolio Development</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">03</span>
+                                <span>Industry Trends and Continuous Learning</span>
+                            </li>
+                            <li class="topic-item">
+                                <span class="topic-bullet">04</span>
+                                <span>Freelancing and Remote Work Opportunities</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Dynamic Files & Folders Section -->
-        <section class="section-card">
-            <span class="section-number">02 / 02</span>
+        <!-- Dynamic Files & Folders Section (Lec 1 - Lec 6 Only) -->
+        <section id="repository" class="section-card">
+            <span class="section-number">03 / 03</span>
             <div class="eyebrow">Interactive Code Explorer</div>
             <h2>Lecture Materials & Code Samples</h2>
 
-            <!-- Dynamic Folder Tabs Filter -->
+            <!-- Dynamic Unit Tabs Filter -->
             <div class="folder-tabs-wrapper" id="folderTabsWrapper">
-                <div class="folder-tabs-label">Filter by Folder / Module</div>
+                <div class="folder-tabs-label">Filter by Unit</div>
                 <div class="folder-tabs" id="folderTabs">
-                    <button class="folder-tab active" data-folder="all">All Modules</button>
+                    <button class="folder-tab active" data-folder="all">All Units</button>
                 </div>
             </div>
 
@@ -816,7 +1655,7 @@
             <div class="filter-controls">
                 <div class="search-wrapper">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="searchInput" class="search-input" placeholder="Search across all files & folders..." aria-label="Search samples">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search across lecture units (Lec 1 to 6)..." aria-label="Search samples">
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
                     <button class="refresh-btn" id="refreshBtn" title="Re-fetch latest files from GitHub">
@@ -833,15 +1672,60 @@
                         <div class="ping"></div>
                         <div class="core"></div>
                     </div>
-                    <div class="loading-text">Fetching live repository tree from GitHub...</div>
+                    <div class="loading-text">Fetching lecture files (Lec 1–6) from GitHub...</div>
                 </div>
             </div>
         </section>
 
-        <!-- Page Footer -->
-        <footer class="page-footer">
-            <p><strong>CIT17 — Web Information Systems</strong> &bull; University of the Cordilleras</p>
-            <p class="footer-mono">Crafted with precision &bull; Instructor Venn Edward D. Nicolas &bull; &copy; 2026</p>
+        <!-- Page Footer (Consultation & vedonic.space production style) -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <a href="#" class="footer-logo-badge" aria-label="Back to top">
+                            <img src="assets/logomain.png" alt="Instructor Venn Logo" width="44" height="44">
+                        </a>
+                        <div class="footer-info">
+                            <div class="footer-role">
+                                <span class="footer-role-dot"></span>
+                                Instructor — Developer — Mentor
+                            </div>
+                            <div class="footer-institution">
+                                University of the Cordilleras
+                                <span class="footer-sep">•</span>
+                                Baguio City, Philippines
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-social-links">
+                        <button type="button" id="copyEmailBtn" class="footer-link-btn" title="Click to copy email address">
+                            Email
+                        </button>
+                        <span class="footer-dot">•</span>
+                        <a href="https://github.com/vedonic-bnd" target="_blank" rel="noopener noreferrer">
+                            GitHub
+                        </a>
+                        <span class="footer-dot">•</span>
+                        <a href="https://www.linkedin.com/in/vedonic/" target="_blank" rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
+                        <span class="footer-dot">•</span>
+                        <a href="https://www.vedonic.space/" target="_blank" rel="noopener noreferrer">
+                            vedonic.space ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        © <span id="copyrightYear">2026</span> Venn Edward D. Nicolas • CITCS Department • University of the Cordilleras. All rights reserved.
+                    </div>
+                    <a href="https://www.vedonic.space/book" target="_blank" rel="noopener noreferrer" class="footer-consultation-link">
+                        Book consultation session →
+                    </a>
+                </div>
+            </div>
         </footer>
     </div>
 
@@ -874,7 +1758,7 @@
             function loop() {
                 x += (tx - x) * 0.1;
                 y += (ty - y) * 0.1;
-                el.style.transform = `translate(${x - 180}px, ${y - 180}px)`;
+                el.style.transform = `translate(${x - 190}px, ${y - 190}px)`;
                 requestAnimationFrame(loop);
             }
             requestAnimationFrame(loop);
@@ -885,6 +1769,9 @@
         const REPO_NAME = 'CC17-WIS_Code_Repository';
         const DEFAULT_BRANCH = 'main';
 
+        // Strict whitelist of accepted lecture folders: Lec 1, Lec 2, Lec 3, Lec 4, Lec 5, Lec 6
+        const VALID_LEC_FOLDERS = ['Lec 1', 'Lec 2', 'Lec 3', 'Lec 4', 'Lec 5', 'Lec 6'];
+
         // Fallback file definitions if offline or GitHub API rate limit is reached
         const FALLBACK_FILES = [
             { path: "Lec 2/Advance Form Sample.html", folder: "Lec 2", name: "Advance Form Sample.html", ext: "html" },
@@ -894,13 +1781,21 @@
             { path: "Lec 2/Sample Semantic HTML.html", folder: "Lec 2", name: "Sample Semantic HTML.html", ext: "html" }
         ];
 
-        // Supported file extensions to display
         const ALLOWED_EXTENSIONS = ['html', 'htm', 'php', 'css', 'js', 'json', 'pdf', 'md'];
 
         let allFiles = [];
         let selectedFolder = 'all';
 
-        // Helper to format file titles cleanly
+        // Normalize folder name to canonical 'Lec X' (handles 'lec 2', 'LEC 2', 'Lec 2')
+        function normalizeLecFolder(folderName) {
+            if (!folderName) return null;
+            const match = folderName.trim().match(/^lec\s*([1-6])$/i);
+            if (match) {
+                return `Lec ${match[1]}`;
+            }
+            return null;
+        }
+
         function formatTitle(filename) {
             const base = filename.replace(/\.[^/.]+$/, '');
             return base
@@ -908,45 +1803,55 @@
                 .replace(/\b\w/g, l => l.toUpperCase());
         }
 
-        // Helper to get extension badge
         function getBadge(ext) {
             const up = (ext || 'FILE').toUpperCase();
             return up === 'HTM' ? 'HTML5' : up === 'HTML' ? 'HTML5' : up;
         }
 
-        // Render dynamic folder filter buttons/tabs
+        // Render dynamic Unit Tabs (Only for units that actually contain uploaded files)
         function renderFolderTabs(files) {
             const tabsContainer = document.getElementById('folderTabs');
             
-            // Collect unique folder names
+            // Count files only for valid folders present in the repository
             const folderCounts = {};
             files.forEach(f => {
-                const folder = f.folder || 'Root';
-                folderCounts[folder] = (folderCounts[folder] || 0) + 1;
+                if (f.folder) {
+                    folderCounts[f.folder] = (folderCounts[f.folder] || 0) + 1;
+                }
             });
 
-            const folders = Object.keys(folderCounts).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+            // Filter strictly for VALID_LEC_FOLDERS that have at least 1 uploaded file
+            const activeFolders = VALID_LEC_FOLDERS.filter(lec => (folderCounts[lec] || 0) > 0);
+
+            // If selected folder is no longer present, reset to 'all'
+            if (selectedFolder !== 'all' && !activeFolders.includes(selectedFolder)) {
+                selectedFolder = 'all';
+            }
 
             let html = `
                 <button class="folder-tab ${selectedFolder === 'all' ? 'active' : ''}" data-folder="all">
-                    <span>All Modules</span>
+                    <span>All Units</span>
                     <span class="tab-count">${files.length}</span>
                 </button>
             `;
 
-            folders.forEach(folder => {
-                const isActive = selectedFolder === folder;
+            activeFolders.forEach(lec => {
+                const count = folderCounts[lec];
+                const isActive = selectedFolder === lec;
+                const match = lec.match(/\d+/);
+                const unitNum = match ? match[0] : '';
+                const unitLabel = unitNum ? `Unit ${unitNum} (${lec})` : lec;
+
                 html += `
-                    <button class="folder-tab ${isActive ? 'active' : ''}" data-folder="${encodeURIComponent(folder)}">
-                        <span>📁 ${folder}</span>
-                        <span class="tab-count">${folderCounts[folder]}</span>
+                    <button class="folder-tab ${isActive ? 'active' : ''}" data-folder="${encodeURIComponent(lec)}">
+                        <span>📁 ${unitLabel}</span>
+                        <span class="tab-count">${count}</span>
                     </button>
                 `;
             });
 
             tabsContainer.innerHTML = html;
 
-            // Attach click listeners to tabs
             tabsContainer.querySelectorAll('.folder-tab').forEach(btn => {
                 btn.addEventListener('click', () => {
                     tabsContainer.querySelectorAll('.folder-tab').forEach(b => b.classList.remove('active'));
@@ -957,7 +1862,7 @@
             });
         }
 
-        // Render file cards with Dual Action Links (Live Rendered Preview & GitHub Source Code)
+        // Render cards
         function renderCards(filesToRender) {
             const fileGrid = document.getElementById('fileGrid');
             const fileCounter = document.getElementById('fileCounter');
@@ -966,7 +1871,7 @@
             if (!filesToRender || filesToRender.length === 0) {
                 fileGrid.innerHTML = `
                     <div class="loading">
-                        <div class="loading-text">No matching files found.</div>
+                        <div class="loading-text">No matching files found in this Unit.</div>
                     </div>
                 `;
                 fileCounter.textContent = '0 files';
@@ -978,13 +1883,9 @@
             filesToRender.forEach(file => {
                 const title = formatTitle(file.name);
                 const badgeText = getBadge(file.ext);
-                const folderLabel = file.folder || 'Root';
+                const folderLabel = file.folder;
 
-                // 1. Live Rendered Preview URL:
-                // Relative URL (works on GitHub Pages and local files)
                 const relativeUrl = file.path.split('/').map(encodeURIComponent).join('/');
-
-                // 2. Direct GitHub Source Code URL:
                 const githubSourceUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/${DEFAULT_BRANCH}/${file.path.split('/').map(encodeURIComponent).join('/')}`;
 
                 const card = document.createElement('div');
@@ -1012,18 +1913,15 @@
             });
         }
 
-        // Master filter function combining Search Query & Selected Folder Tab
         function filterAndRender() {
             const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
 
             let filtered = allFiles;
 
-            // 1. Filter by Folder
             if (selectedFolder !== 'all') {
-                filtered = filtered.filter(f => (f.folder || 'Root') === selectedFolder);
+                filtered = filtered.filter(f => f.folder === selectedFolder);
             }
 
-            // 2. Filter by Search Query
             if (query) {
                 filtered = filtered.filter(f =>
                     f.name.toLowerCase().includes(query) ||
@@ -1036,12 +1934,10 @@
             renderCards(filtered);
         }
 
-        // Search Input event
         document.getElementById('searchInput').addEventListener('input', () => {
             filterAndRender();
         });
 
-        // Fetch repository tree recursively from GitHub Trees API
         function fetchRepositoryTree() {
             const fileGrid = document.getElementById('fileGrid');
             fileGrid.innerHTML = `
@@ -1050,11 +1946,10 @@
                         <div class="ping"></div>
                         <div class="core"></div>
                     </div>
-                    <div class="loading-text">Syncing with GitHub repository...</div>
+                    <div class="loading-text">Fetching lecture files (Lec 1–6) from GitHub...</div>
                 </div>
             `;
 
-            // GitHub Git Trees API with recursive=1 fetches ALL nested folders and files in 1 call!
             const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${DEFAULT_BRANCH}?recursive=1`;
 
             fetch(apiUrl)
@@ -1069,29 +1964,33 @@
                         throw new Error('Invalid tree response');
                     }
 
-                    // Parse and filter blobs (files)
                     const parsed = [];
 
                     data.tree.forEach(item => {
                         if (item.type === 'blob') {
                             const fullPath = item.path;
                             const pathParts = fullPath.split('/');
-                            const fileName = pathParts[pathParts.length - 1];
+                            
+                            if (pathParts.length < 2) return;
 
-                            // Exclude root index.html and hidden/system files
-                            if (fullPath.toLowerCase() === 'index.html' || fileName.startsWith('.')) {
+                            const rawFolder = pathParts[0];
+                            const normalizedFolder = normalizeLecFolder(rawFolder);
+
+                            if (!normalizedFolder || !VALID_LEC_FOLDERS.includes(normalizedFolder)) {
                                 return;
                             }
+
+                            const fileName = pathParts[pathParts.length - 1];
+
+                            if (fileName.startsWith('.')) return;
 
                             const extMatch = fileName.match(/\.([^/.]+)$/);
                             const ext = extMatch ? extMatch[1].toLowerCase() : '';
 
-                            // Filter for web lecture materials and code files
                             if (ALLOWED_EXTENSIONS.includes(ext)) {
-                                const folderName = pathParts.length > 1 ? pathParts.slice(0, -1).join('/') : 'Root';
                                 parsed.push({
                                     path: fullPath,
-                                    folder: folderName,
+                                    folder: normalizedFolder,
                                     name: fileName,
                                     ext: ext,
                                     size: item.size
@@ -1106,7 +2005,6 @@
                         allFiles = parsed;
                     }
 
-                    // Sort by folder then by filename
                     allFiles.sort((a, b) => {
                         if (a.folder !== b.folder) {
                             return a.folder.localeCompare(b.folder, undefined, { numeric: true });
@@ -1125,12 +2023,65 @@
                 });
         }
 
-        // Refresh button click
         document.getElementById('refreshBtn').addEventListener('click', () => {
             fetchRepositoryTree();
         });
 
-        // Initialize on load
+        // Copy Email to Clipboard with Toast Notification
+        function copyEmailToClipboard(email) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast(`Copied ${email} to clipboard!`);
+                }).catch(() => {
+                    fallbackCopyText(email);
+                });
+            } else {
+                fallbackCopyText(email);
+            }
+        }
+
+        function fallbackCopyText(text) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            tempInput.setAttribute('readonly', '');
+            tempInput.style.position = 'absolute';
+            tempInput.style.left = '-9999px';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(`Copied ${text} to clipboard!`);
+            } catch (err) {
+                showToast(`Instructor Email: ${text}`);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        let toastTimer = null;
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotification');
+            const toastMsg = document.getElementById('toastMessage');
+            if (!toast || !toastMsg) return;
+
+            toastMsg.textContent = msg;
+            toast.classList.add('show');
+
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3200);
+        }
+
+        document.getElementById('copyEmailBtn')?.addEventListener('click', () => {
+            copyEmailToClipboard('vdnicolas@uc-bcf.edu.ph');
+        });
+
+        // Dynamic Copyright Year
+        const yearEl = document.getElementById('copyrightYear');
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+        }
+
         fetchRepositoryTree();
     </script>
 </body>

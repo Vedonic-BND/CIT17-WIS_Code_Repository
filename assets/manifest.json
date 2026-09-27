@@ -1,0 +1,35 @@
+{
+  "name": "CIT17 — Web Information Systems",
+  "short_name": "CIT17 WIS",
+  "description": "Official Course Portal, Syllabus, Learning Units, and Interactive Code Repository by Instructor Venn Edward Nicolas.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#060a0e",
+  "theme_color": "#060a0e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": [
+    "education",
+    "development"
+  ],
+  "lang": "en-PH"
+}
