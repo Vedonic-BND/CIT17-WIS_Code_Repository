@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Dark Mode</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Dark Mode Example</h1>
+
+        <p>Click the button to toggle dark mode.</p>
+
+        <button id="darkModeToggle">
+            Toggle Dark Mode
+        </button>
+    </div>
+
+    <script>
+        const toggleButton = document.querySelector('#darkModeToggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Save preference
+            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        });
+
+        // Load saved preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+        }
+    </script>
+
+</body>
+
+</html>
