@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#060a0e">
+    <meta name="description"
+        content="CC17 – Web Information System | Lecture Materials, Interactive Code Samples, and Exercises by Instructor Venn.">
+    <title>CC17 – Web Information System | Code Repository</title>
+
+    <!-- Google Fonts Matching Consultation Design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Consultation Color Palette */
+            --color-stormy-teal: #006466;
+            --color-dark-teal-1: #065a60;
+            --color-dark-teal-2: #0b525b;
+            --color-dark-teal-3: #144552;
+            --color-charcoal-blue: #1b3a4b;
+            --color-deep-space-blue: #212f45;
+            --color-space-indigo: #272640;
+            --color-midnight-violet-1: #312244;
+            --color-midnight-violet-2: #3e1f47;
+            --color-deep-purple: #4d194d;
+            --color-mint-accent: #52b788;
+
+            /* Surface & Text Tokens */
+            --bg-base: #060a0e;
+            --card-bg: rgba(9, 18, 24, 0.6);
+            --card-hover-bg: rgba(9, 18, 24, 0.85);
+            --border-subtle: rgba(255, 255, 255, 0.07);
+            --border-hover: rgba(255, 255, 255, 0.22);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.65);
+            --text-muted: rgba(255, 255, 255, 0.38);
+
+            --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: var(--bg-base);
+            background-image:
+                radial-gradient(ellipse 70% 40% at 50% -10%, rgba(0, 100, 102, 0.16), transparent),
+                radial-gradient(ellipse 60% 40% at 90% 40%, rgba(39, 38, 64, 0.15), transparent),
+                radial-gradient(ellipse 70% 50% at 10% 80%, rgba(49, 34, 68, 0.12), transparent);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            padding: 2.5rem 1.5rem 4rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: rgba(0, 100, 102, 0.45);
+            color: #ffffff;
+        }
+
+        /* Reading Progress Bar */
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            z-index: 99998;
+            background: linear-gradient(90deg, #006466, #52b788, #006466);
+            background-size: 200% auto;
+            animation: progress-shimmer 2s linear infinite;
+            transition: width 0.1s linear;
+            pointer-events: none;
+            border-radius: 0 999px 999px 0;
+        }
+
+        @keyframes progress-shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Cursor Glow */
+        .cursor-glow {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 100, 102, 0.12) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            will-change: transform;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060a0e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #144552;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #006466;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation / Top Bar */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(0, 100, 102, 0.12);
+            border: 1px solid rgba(0, 100, 102, 0.3);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--color-mint-accent);
+            text-transform: uppercase;
+        }
+
+        .brand-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-mint-accent);
+            box-shadow: 0 0 8px var(--color-mint-accent);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.6; }
+        }
+
+        .top-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .repo-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease;
+        }
+
+        .repo-link:hover {
+            color: #ffffff;
+        }
+
+        /* Header / Hero Section */
+        header.hero-header {
+            position: relative;
+            border-radius: 24px;
+            border: 1px solid var(--border-subtle);
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        header.hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 100, 102, 0.8), rgba(82, 183, 136, 0.8), transparent);
+        }
+
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .eyebrow::after {
+            content: '';
+            flex: 1;
+            max-width: 60px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.015em;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+        }
+
+        header h1 span {
+            color: var(--color-mint-accent);
+            font-style: italic;
+        }
+
+        header p.hero-subtitle {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 720px;
+            font-weight: 300;
+        }
+
+        /* Hero Pill Badges */
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.8rem;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.03em;
+            transition: all 0.25s ease;
+        }
+
+        .hero-pill:hover {
+            border-color: rgba(0, 100, 102, 0.5);
+            background: rgba(0, 100, 102, 0.15);
+            color: #ffffff;
+        }
+
+        /* Section Container */
+        .section-card {
+            position: relative;
+            border-radius: 24px;
+            border: 1px solid var(--border-subtle);
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 2.25rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        .section-number {
+            position: absolute;
+            top: 1.75rem;
+            right: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.12);
+            letter-spacing: 0.15em;
+            user-select: none;
+        }
+
+        .section-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-lead {
+            font-size: 0.96rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .section-lead strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .overview-callout {
+            margin-top: 1.25rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 14px;
+            border-left: 3px solid var(--color-stormy-teal);
+            background: rgba(0, 100, 102, 0.08);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Dynamic Folder Pills Navigation */
+        .folder-tabs-wrapper {
+            margin-bottom: 1.5rem;
+        }
+
+        .folder-tabs-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .folder-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .folder-tab {
+            appearance: none;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 999px;
+            padding: 0.4rem 0.9rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .folder-tab:hover {
+            border-color: rgba(0, 100, 102, 0.5);
+            background: rgba(0, 100, 102, 0.12);
+            color: #ffffff;
+        }
+
+        .folder-tab.active {
+            background: rgba(0, 100, 102, 0.25);
+            border-color: var(--color-mint-accent);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(82, 183, 136, 0.2);
+        }
+
+        .folder-tab .tab-count {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.1rem 0.4rem;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .folder-tab.active .tab-count {
+            background: rgba(82, 183, 136, 0.25);
+            color: var(--color-mint-accent);
+        }
+
+        /* Search & Filter Bar */
+        .filter-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 240px;
+            max-width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(6, 10, 14, 0.7);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 0.65rem 1rem 0.65rem 2.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: #ffffff;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .search-input:focus {
+            border-color: rgba(0, 100, 102, 0.8);
+            box-shadow: 0 0 0 3px rgba(0, 100, 102, 0.2);
+            background: rgba(6, 10, 14, 0.95);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .file-counter {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* File Cards Grid */
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        /* Consultation-Style Card */
+        .file-item {
+            position: relative;
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+            background: rgba(9, 18, 24, 0.5);
+            padding: 1.5rem;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .file-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(0, 100, 102, 0.12) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .file-item:hover::before {
+            opacity: 1;
+        }
+
+        .file-item:hover {
+            border-color: var(--border-hover);
+            background: var(--card-hover-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 100, 102, 0.15);
+        }
+
+        .card-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.85rem;
+        }
+
+        .card-folder-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--color-mint-accent);
+            background: rgba(0, 100, 102, 0.15);
+            border: 1px solid rgba(0, 100, 102, 0.3);
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        .card-ext-badge {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .file-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.35;
+            margin-bottom: 0.4rem;
+        }
+
+        .file-item p.file-filename {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            word-break: break-all;
+        }
+
+        /* Dual Action Buttons on Card */
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.55rem 0.75rem;
+            border-radius: 10px;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-preview {
+            background: rgba(0, 100, 102, 0.3);
+            border: 1px solid rgba(0, 100, 102, 0.5);
+            color: #ffffff;
+        }
+
+        .btn-preview:hover {
+            background: #006466;
+            border-color: var(--color-mint-accent);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(82, 183, 136, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-source {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .btn-source:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* Loading & Empty States */
+        .loading {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-secondary);
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .loading-beacon {
+            position: relative;
+            width: 36px;
+            height: 36px;
+        }
+
+        .loading-beacon .ping {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(0, 100, 102, 0.35);
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        .loading-beacon .core {
+            position: absolute;
+            inset: 25%;
+            border-radius: 50%;
+            background: var(--color-stormy-teal);
+        }
+
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .loading-text {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+        }
+
+        /* Refresh Button */
+        .refresh-btn {
+            background: none;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: all 0.2s ease;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-color: var(--border-hover);
+        }
+
+        /* Footer */
+        footer.page-footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            line-height: 1.8;
+            font-family: var(--font-sans);
+        }
+
+        footer.page-footer strong {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        footer .footer-mono {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-top: 0.4rem;
+            letter-spacing: 0.04em;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            header.hero-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-card {
+                padding: 1.5rem;
+            }
+
+            .file-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-number {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Animated Reading Progress Bar -->
+    <div id="reading-progress" aria-hidden="true"></div>
+
+    <!-- Ambient Cursor Spotlight -->
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <div class="container">
+        <!-- Top Navigation / Brand Status -->
+        <div class="top-bar">
+            <div class="brand-badge">
+                <span class="dot"></span>
+                <span>CITCS • 1st Tri 2026-2027</span>
+            </div>
+            <div class="top-meta">
+                <span>COURSE: CIT17 / CC17</span>
+                <span>&bull;</span>
+                <a class="repo-link" href="https://github.com/Vedonic-BND/CC17-WIS_Code_Repository" target="_blank" rel="noopener noreferrer">
+                    <span>GitHub Repo</span> &nearr;
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero Header -->
+        <header class="hero-header">
+            <div class="eyebrow">
+                <span>01 // Dynamic Repository Explorer</span>
+            </div>
+            <h1>CC17 — Web <span>Information Systems</span></h1>
+            <p class="hero-subtitle">
+                Live interactive code repository for lectures, templates, HTML5/CSS3 prototypes, responsive design, and front-end architectures.
+            </p>
+
+            <div class="hero-pills">
+                <span class="hero-pill">⚡ Auto-Synced with GitHub</span>
+                <span class="hero-pill">💻 Modern Web Tech</span>
+                <span class="hero-pill">📐 Flexbox & CSS Grid</span>
+                <span class="hero-pill">📱 Mobile-First</span>
+            </div>
+        </header>
+
+        <!-- Course Overview Section -->
+        <section class="section-card">
+            <span class="section-number">01 / 02</span>
+            <div class="eyebrow">About Course</div>
+            <h2>Course Overview</h2>
+            <p class="section-lead">
+                This repository provides lecture materials, code demonstrations, and hands-on exercises for the <strong>Web Information Systems</strong> course at the <strong>College of Information Technology and Computer Science</strong>.
+            </p>
+            <div class="overview-callout">
+                All folders and sample files pushed to the repository are automatically discovered in real-time.
+            </div>
+        </section>
+
+        <!-- Dynamic Files & Folders Section -->
+        <section class="section-card">
+            <span class="section-number">02 / 02</span>
+            <div class="eyebrow">Interactive Code Explorer</div>
+            <h2>Lecture Materials & Code Samples</h2>
+
+            <!-- Dynamic Folder Tabs Filter -->
+            <div class="folder-tabs-wrapper" id="folderTabsWrapper">
+                <div class="folder-tabs-label">Filter by Folder / Module</div>
+                <div class="folder-tabs" id="folderTabs">
+                    <button class="folder-tab active" data-folder="all">All Modules</button>
+                </div>
+            </div>
+
+            <!-- Search & Filter Controls -->
+            <div class="filter-controls">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search across all files & folders..." aria-label="Search samples">
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <button class="refresh-btn" id="refreshBtn" title="Re-fetch latest files from GitHub">
+                        <span>↻</span> Sync
+                    </button>
+                    <div class="file-counter" id="fileCounter">Discovering files...</div>
+                </div>
+            </div>
+
+            <!-- File Cards Grid -->
+            <div class="file-grid" id="fileGrid">
+                <div class="loading">
+                    <div class="loading-beacon">
+                        <div class="ping"></div>
+                        <div class="core"></div>
+                    </div>
+                    <div class="loading-text">Fetching live repository tree from GitHub...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page Footer -->
+        <footer class="page-footer">
+            <p><strong>CIT17 — Web Information Systems</strong> &bull; University of the Cordilleras</p>
+            <p class="footer-mono">Crafted with precision &bull; Instructor Venn Edward D. Nicolas &bull; &copy; 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const doc = document.documentElement;
+            const scrollTop = window.scrollY;
+            const scrollHeight = doc.scrollHeight - doc.clientHeight;
+            const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            const bar = document.getElementById('reading-progress');
+            if (bar) bar.style.width = `${Math.min(pct, 100)}%`;
+        }, { passive: true });
+
+        // Smooth Cursor Glow Interpolation
+        (function initCursorGlow() {
+            const el = document.getElementById('cursorGlow');
+            if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            let x = window.innerWidth / 2;
+            let y = window.innerHeight / 2;
+            let tx = x;
+            let ty = y;
+
+            window.addEventListener('mousemove', (e) => {
+                tx = e.clientX;
+                ty = e.clientY;
+            }, { passive: true });
+
+            function loop() {
+                x += (tx - x) * 0.1;
+                y += (ty - y) * 0.1;
+                el.style.transform = `translate(${x - 180}px, ${y - 180}px)`;
+                requestAnimationFrame(loop);
+            }
+            requestAnimationFrame(loop);
+        })();
+
+        // GitHub Repository Configuration
+        const REPO_OWNER = 'Vedonic-BND';
+        const REPO_NAME = 'CC17-WIS_Code_Repository';
+        const DEFAULT_BRANCH = 'main';
+
+        // Fallback file definitions if offline or GitHub API rate limit is reached
+        const FALLBACK_FILES = [
+            { path: "Lec 2/Advance Form Sample.html", folder: "Lec 2", name: "Advance Form Sample.html", ext: "html" },
+            { path: "Lec 2/Flexbox Sample.html", folder: "Lec 2", name: "Flexbox Sample.html", ext: "html" },
+            { path: "Lec 2/Grid Sample.html", folder: "Lec 2", name: "Grid Sample.html", ext: "html" },
+            { path: "Lec 2/Responsive Mobile First Sample.html", folder: "Lec 2", name: "Responsive Mobile First Sample.html", ext: "html" },
+            { path: "Lec 2/Sample Semantic HTML.html", folder: "Lec 2", name: "Sample Semantic HTML.html", ext: "html" }
+        ];
+
+        // Supported file extensions to display
+        const ALLOWED_EXTENSIONS = ['html', 'htm', 'php', 'css', 'js', 'json', 'pdf', 'md'];
+
+        let allFiles = [];
+        let selectedFolder = 'all';
+
+        // Helper to format file titles cleanly
+        function formatTitle(filename) {
+            const base = filename.replace(/\.[^/.]+$/, '');
+            return base
+                .replace(/[-_]/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        // Helper to get extension badge
+        function getBadge(ext) {
+            const up = (ext || 'FILE').toUpperCase();
+            return up === 'HTM' ? 'HTML5' : up === 'HTML' ? 'HTML5' : up;
+        }
+
+        // Render dynamic folder filter buttons/tabs
+        function renderFolderTabs(files) {
+            const tabsContainer = document.getElementById('folderTabs');
+            
+            // Collect unique folder names
+            const folderCounts = {};
+            files.forEach(f => {
+                const folder = f.folder || 'Root';
+                folderCounts[folder] = (folderCounts[folder] || 0) + 1;
+            });
+
+            const folders = Object.keys(folderCounts).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+            let html = `
+                <button class="folder-tab ${selectedFolder === 'all' ? 'active' : ''}" data-folder="all">
+                    <span>All Modules</span>
+                    <span class="tab-count">${files.length}</span>
+                </button>
+            `;
+
+            folders.forEach(folder => {
+                const isActive = selectedFolder === folder;
+                html += `
+                    <button class="folder-tab ${isActive ? 'active' : ''}" data-folder="${encodeURIComponent(folder)}">
+                        <span>📁 ${folder}</span>
+                        <span class="tab-count">${folderCounts[folder]}</span>
+                    </button>
+                `;
+            });
+
+            tabsContainer.innerHTML = html;
+
+            // Attach click listeners to tabs
+            tabsContainer.querySelectorAll('.folder-tab').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabsContainer.querySelectorAll('.folder-tab').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    selectedFolder = decodeURIComponent(btn.getAttribute('data-folder'));
+                    filterAndRender();
+                });
+            });
+        }
+
+        // Render file cards with Dual Action Links (Live Rendered Preview & GitHub Source Code)
+        function renderCards(filesToRender) {
+            const fileGrid = document.getElementById('fileGrid');
+            const fileCounter = document.getElementById('fileCounter');
+            fileGrid.innerHTML = '';
+
+            if (!filesToRender || filesToRender.length === 0) {
+                fileGrid.innerHTML = `
+                    <div class="loading">
+                        <div class="loading-text">No matching files found.</div>
+                    </div>
+                `;
+                fileCounter.textContent = '0 files';
+                return;
+            }
+
+            fileCounter.textContent = `${filesToRender.length} ${filesToRender.length === 1 ? 'file' : 'files'}`;
+
+            filesToRender.forEach(file => {
+                const title = formatTitle(file.name);
+                const badgeText = getBadge(file.ext);
+                const folderLabel = file.folder || 'Root';
+
+                // 1. Live Rendered Preview URL:
+                // Relative URL (works on GitHub Pages and local files)
+                const relativeUrl = file.path.split('/').map(encodeURIComponent).join('/');
+
+                // 2. Direct GitHub Source Code URL:
+                const githubSourceUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/${DEFAULT_BRANCH}/${file.path.split('/').map(encodeURIComponent).join('/')}`;
+
+                const card = document.createElement('div');
+                card.className = 'file-item';
+
+                card.innerHTML = `
+                    <div>
+                        <div class="card-header-top">
+                            <span class="card-folder-badge">📁 ${folderLabel}</span>
+                            <span class="card-ext-badge">${badgeText}</span>
+                        </div>
+                        <h3>${title}</h3>
+                        <p class="file-filename">${file.name}</p>
+                    </div>
+                    <div class="card-actions">
+                        <a href="${relativeUrl}" class="btn-action btn-preview" target="_blank" rel="noopener noreferrer" title="Render live web page">
+                            <span>⚡ Live Demo</span>
+                        </a>
+                        <a href="${githubSourceUrl}" class="btn-action btn-source" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">
+                            <span>&lt;/&gt; Code &nearr;</span>
+                        </a>
+                    </div>
+                `;
+                fileGrid.appendChild(card);
+            });
+        }
+
+        // Master filter function combining Search Query & Selected Folder Tab
+        function filterAndRender() {
+            const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+
+            let filtered = allFiles;
+
+            // 1. Filter by Folder
+            if (selectedFolder !== 'all') {
+                filtered = filtered.filter(f => (f.folder || 'Root') === selectedFolder);
+            }
+
+            // 2. Filter by Search Query
+            if (query) {
+                filtered = filtered.filter(f =>
+                    f.name.toLowerCase().includes(query) ||
+                    f.path.toLowerCase().includes(query) ||
+                    (f.folder && f.folder.toLowerCase().includes(query)) ||
+                    formatTitle(f.name).toLowerCase().includes(query)
+                );
+            }
+
+            renderCards(filtered);
+        }
+
+        // Search Input event
+        document.getElementById('searchInput').addEventListener('input', () => {
+            filterAndRender();
+        });
+
+        // Fetch repository tree recursively from GitHub Trees API
+        function fetchRepositoryTree() {
+            const fileGrid = document.getElementById('fileGrid');
+            fileGrid.innerHTML = `
+                <div class="loading">
+                    <div class="loading-beacon">
+                        <div class="ping"></div>
+                        <div class="core"></div>
+                    </div>
+                    <div class="loading-text">Syncing with GitHub repository...</div>
+                </div>
+            `;
+
+            // GitHub Git Trees API with recursive=1 fetches ALL nested folders and files in 1 call!
+            const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${DEFAULT_BRANCH}?recursive=1`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`GitHub API HTTP ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.tree || !Array.isArray(data.tree)) {
+                        throw new Error('Invalid tree response');
+                    }
+
+                    // Parse and filter blobs (files)
+                    const parsed = [];
+
+                    data.tree.forEach(item => {
+                        if (item.type === 'blob') {
+                            const fullPath = item.path;
+                            const pathParts = fullPath.split('/');
+                            const fileName = pathParts[pathParts.length - 1];
+
+                            // Exclude root index.html and hidden/system files
+                            if (fullPath.toLowerCase() === 'index.html' || fileName.startsWith('.')) {
+                                return;
+                            }
+
+                            const extMatch = fileName.match(/\.([^/.]+)$/);
+                            const ext = extMatch ? extMatch[1].toLowerCase() : '';
+
+                            // Filter for web lecture materials and code files
+                            if (ALLOWED_EXTENSIONS.includes(ext)) {
+                                const folderName = pathParts.length > 1 ? pathParts.slice(0, -1).join('/') : 'Root';
+                                parsed.push({
+                                    path: fullPath,
+                                    folder: folderName,
+                                    name: fileName,
+                                    ext: ext,
+                                    size: item.size
+                                });
+                            }
+                        }
+                    });
+
+                    if (parsed.length === 0) {
+                        allFiles = FALLBACK_FILES;
+                    } else {
+                        allFiles = parsed;
+                    }
+
+                    // Sort by folder then by filename
+                    allFiles.sort((a, b) => {
+                        if (a.folder !== b.folder) {
+                            return a.folder.localeCompare(b.folder, undefined, { numeric: true });
+                        }
+                        return a.name.localeCompare(b.name, undefined, { numeric: true });
+                    });
+
+                    renderFolderTabs(allFiles);
+                    filterAndRender();
+                })
+                .catch(err => {
+                    console.warn('Falling back to local definitions:', err);
+                    allFiles = FALLBACK_FILES;
+                    renderFolderTabs(allFiles);
+                    filterAndRender();
+                });
+        }
+
+        // Refresh button click
+        document.getElementById('refreshBtn').addEventListener('click', () => {
+            fetchRepositoryTree();
+        });
+
+        // Initialize on load
+        fetchRepositoryTree();
+    </script>
+</body>
+
+</html>
